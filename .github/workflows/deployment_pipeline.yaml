@@ -1,0 +1,30 @@
+name: Deployment pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  simple_deployment_job:
+    runs-on: ubuntu-20.04
+    steps:
+      # By default the virtual environment that is set up is empty.
+      # We need to checkout the code in the repository to be able to work with it.
+      # The "uses"-keyword tells GitHub actions to run a specific action.
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # We also need to setup node because the code is in Javascript.
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # Then install project dependencies
+      - name: Install dependencies
+        run: npm install
+
+        # Then perform an actual work step: lint the code
+      - name: Lint the code
+        run: npm run eslint
