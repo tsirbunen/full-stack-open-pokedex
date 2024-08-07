@@ -19,3 +19,13 @@ jobs:
       - name: Say hello to user using user's name
         run: |
           echo "Hello ${{ github.actor }}!"
+
+  log_date_and_directory_content_job:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Log date
+        run: |
+          echo "Today's date is $(date)"
+      - name: Log directory content
+        run: |
+          ls
