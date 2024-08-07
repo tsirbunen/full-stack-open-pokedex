@@ -12,3 +12,10 @@ jobs:
       - name: Say hello there
         run: |
           echo "Hello there!"
+
+  greet_user_by_name_job:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Say hello to user using user's name
+        run: |
+          echo "Hello ${{ github.actor }}!"
