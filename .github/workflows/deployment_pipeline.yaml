@@ -19,12 +19,18 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: '20'
 
       # Then install project dependencies
       - name: Install dependencies
         run: npm install
 
-        # Then perform an actual work step: lint the code
+        # Then perform the actual work steps
       - name: Lint the code
         run: npm run eslint
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Test
+        run: npm run test
