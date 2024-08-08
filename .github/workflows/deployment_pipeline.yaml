@@ -48,5 +48,7 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
+      # Trigger deployment by sending a request with curl to
+      # a private deploy hook url at Render hosting
       - name: Trigger deployment
         run: curl ${{ secrets.RENDER_DEPLOY_HOOK_POKEDEX }}
