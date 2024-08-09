@@ -56,6 +56,8 @@ jobs:
     runs-on: ubuntu-20.04
     if: ${{ github.event_name == 'push' }}
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       # Trigger deployment by sending a request with curl to
       # a private deploy hook url at Render hosting
       - name: Trigger deployment
