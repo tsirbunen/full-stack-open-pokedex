@@ -16,7 +16,7 @@ Start by running `npm install` inside the project folder
 
 ## Render hosting
 
-App is deployed in Render hosting (because it is a free hosting service) with the following settings:
+App is deployed in **[Render hosting](https://dashboard.render.com)** (because it is a free hosting service) with the following settings:
 
 - build command: `./build_step_in_render_hosting.sh`
 - start command: `npm run start-prod`
