@@ -9,7 +9,7 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  simple_deployment_job:
+  lint_build_and_test_job:
     runs-on: ubuntu-20.04
     steps:
       # By default the virtual environment that is set up is empty.
@@ -51,6 +51,10 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
+  deploy_job:
+    runs-on: ubuntu-20.04
+    if: ${{ github.event_name == 'push' }}
+    steps:
       # Trigger deployment by sending a request with curl to
       # a private deploy hook url at Render hosting
       - name: Trigger deployment
